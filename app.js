@@ -1,17 +1,26 @@
+const path = require('path');
+
 const express = require('express');
+const bodyParser = require('body-parser');
+
+const errorController = require('./controllers/error');
 
 const app = express();
 
-app.use((req, res, next) => {
-   console.log("In the middleware");
-   next();
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+
+const adminRoutes = require('./routes/admin');
+const pageRoutes = require('./routes/page');
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/admin', adminRoutes);
+app.use('/', pageRoutes);
+
+app.use(errorController.get404);
+
+app.listen(3000, () => {
+   console.log('Servers up and running on port 3000');
 });
-
-app.use((req, res, next) => {
-   console.log("after the middleware");
-   res.send('<h1>Hello world!</h1>');
-});
-
-const server = http.createServer(app);
-
-app.listen(3000);
