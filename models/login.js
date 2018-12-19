@@ -1,3 +1,4 @@
+/*
 const fs = require('fs');
 const path = require('');
 
@@ -26,3 +27,4 @@ module.exports = class Login {
       getLoginFromFile(cb);
    }
 }
+*/

@@ -7,7 +7,7 @@ exports.getLogin = (req, res , next) => {
 };
 
 exports.postAddProduct = (req, res, next) => {
-   const email = req.body.email;
-   const password = req.body.password;
+   //const email = req.body.email;
+   //const password = req.body.password;
    res.redirect('/admin/home');
 };
