@@ -1,30 +1,12 @@
-/*
-const fs = require('fs');
-const path = require('');
+const getDb = require('../util/database').getDb;
 
-const p = path.join(
-   path.dirname(process.mainModule.filename),
-   'data',
-   'login.json'
-);
-
-const getLoginFromFile = cb => {
-   fs.readFile(p, (err, fileContent) => {
-      if (err) {
-         return cb([]);
-      }
-      cb(JSON.parse(fileContent));
-   });
-}
-
-module.exports = class Login {
-   constructor(email, password) {
-      this.email = email;
+class Product {
+   constructor(user, password) {
+      this.user = user;
       this.password = password;
    }
 
-   static fetchData(cb) {
-      getLoginFromFile(cb);
+   save() {
+
    }
 }
-*/

@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const errorController = require('./controllers/error');
+const mongoConnect = require('./util/database');
 
 const app = express();
 
@@ -21,6 +22,6 @@ app.use('/', pageRoutes);
 
 app.use(errorController.get404);
 
-app.listen(3000, () => {
-   console.log('Servers up and running on port 3000');
+mongoConnect(() => {
+   app.listen(3000);
 });
