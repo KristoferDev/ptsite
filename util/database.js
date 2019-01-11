@@ -4,7 +4,7 @@ const MongoClient = mongodb.MongoClient;
 let _db;
 
 const mongoConnect = callback => {
-   MongoClient.connect('mongodb://kristofer:NumW552QeQN6YNJv@cluster0-shard-00-00-hqbfr.mongodb.net:27017,cluster0-shard-00-01-hqbfr.mongodb.net:27017,cluster0-shard-00-02-hqbfr.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true', {useNewUrlParser: true}
+   MongoClient.connect('mongodb+srv://kristofer:NumW552QeQN6YNJv@developing-hqbfr.mongodb.net/ptsite?retryWrites=true', {useNewUrlParser: true}
    )
    .then(client => {
       console.log('Connected to DB')
@@ -21,6 +21,7 @@ const getDb = () => {
    if(_db) {
       return _db;
    }
+   console.log();
    throw 'No database found!';
 }
 

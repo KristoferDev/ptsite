@@ -1,0 +1,18 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/forms.css">
+</head>
+<body>
+   <%- include('../includes/navigation.ejs') %>
+   <main>
+      <h1>Pages</h1>
+      <h2>Page one</h2>
+      <form class="admin-form" action="/admin/admin" method="POST">
+         <label for="starttext">Rubrik</label>
+         <input type="text" name="header">
+         <label for="starttext">Text</label>
+         <textarea rows="4" cols="50" name="text"></textarea>
+         <input type="hidden" name="admin_id" value="1">
+         <button type="submit">Skicka</button>
+      </form>
+   </main>
+   <%- include('../includes/end.ejs') %>

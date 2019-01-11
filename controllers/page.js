@@ -1,8 +1,18 @@
+const Page = require('../models/page');
+
 exports.getHome = (req, res , next) => {
-   res.render('page/', {
-      pageTitle: 'Joakim',
-      path: '/'
-   });
+   Page.findById(1)
+      .then(page => {
+         console.log('page', page);
+         res.render('page/', {
+            page: page,
+            pageTitle: 'Joakim',
+            path: '/'
+         })
+      })
+      .catch(err => {
+         console.log('err', err);
+      })
 };
 
 exports.getAbout = (req, res , next) => {
