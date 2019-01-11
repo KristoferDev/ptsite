@@ -6,7 +6,6 @@ class Page {
       this.header = header;
       this.starttext = starttext;
       this.admin_id = parseInt(admin_id);
-      console.log(admin_id);
    }
    save() {
       const db = getDb();
@@ -20,13 +19,12 @@ class Page {
       });
    }
 
-   static findById() {
+   static findById(admin_id) {
       const db = getDb();
       return db.collection('pages')
-         .find({admin_id : 1})
+         .find({admin_id : admin_id})
          .next()
          .then(page => {
-            console.log('*page*', page);
             return page;
          })
          .catch(err => {

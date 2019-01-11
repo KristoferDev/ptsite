@@ -16,22 +16,43 @@ exports.getHome = (req, res , next) => {
 };
 
 exports.getAbout = (req, res , next) => {
-   res.render('page/ommig', {
-      pageTitle: 'Joakim',
-      path: '/about'
-   });
+   Page.findById(2)
+      .then(page => {
+         res.render('page/ommig/', {
+            page: page,
+            pageTitle: 'Joakim',
+            path: '/about'
+         })
+      })
+      .catch(err => {
+         console.log('err', err);
+      })
 };
 
 exports.getWorkout = (req, res , next) => {
-   res.render('page/traning', {
-      pageTitle: 'Joakim',
-      path: '/workout'
-   });
+   Page.findById(3)
+      .then(page => {
+         res.render('page/traning/', {
+            page: page,
+            pageTitle: 'Joakim',
+            path: '/workout'
+         })
+      })
+      .catch(err => {
+         console.log('err', err);
+      })
 };
 
 exports.getContact = (req, res , next) => {
-   res.render('page/kontakt', {
-      pageTitle: 'Joakim',
-      path: '/contact'
-   });
+   Page.findById(4)
+      .then(page => {
+         res.render('page/contact/', {
+            page: page,
+            pageTitle: 'Joakim',
+            path: '/contact'
+         })
+      })
+      .catch(err => {
+         console.log('err', err);
+      })
 };
