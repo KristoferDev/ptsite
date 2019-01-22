@@ -21,7 +21,7 @@ exports.getAbout = (req, res , next) => {
          res.render('page/ommig/', {
             page: page,
             pageTitle: 'Joakim',
-            path: '/about'
+            path: '/ommig'
          })
       })
       .catch(err => {
