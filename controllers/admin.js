@@ -10,11 +10,17 @@ exports.getLogin = (req, res , next) => {
 };
 
 exports.getAdmin = (req, res, next) => {
-   res.render('admin/admin', {
-      pageTitle: 'Admin',
-      path: '/admin/admin',
-      formCSS: true
-   });
+   page.find()
+      .then(page => {
+         res.render('admin/admin', {
+            pageTitle: 'Admin',
+            path: '/admin/admin',
+            formCSS: true
+         });
+      })
+      .catch(err => {
+         console.log(err);
+      })
 };
 
 exports.postAdmin = (req, res, next) => {

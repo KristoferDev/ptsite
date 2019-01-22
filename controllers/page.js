@@ -18,7 +18,7 @@ exports.getHome = (req, res , next) => {
 exports.getAbout = (req, res , next) => {
    Page.findById(2)
       .then(page => {
-         res.render('page/ommig/', {
+         res.render('page/ommig', {
             page: page,
             pageTitle: 'Joakim',
             path: '/ommig'
@@ -32,7 +32,7 @@ exports.getAbout = (req, res , next) => {
 exports.getWorkout = (req, res , next) => {
    Page.findById(3)
       .then(page => {
-         res.render('page/traning/', {
+         res.render('page/traning', {
             page: page,
             pageTitle: 'Joakim',
             path: '/workout'
@@ -46,7 +46,7 @@ exports.getWorkout = (req, res , next) => {
 exports.getContact = (req, res , next) => {
    Page.findById(4)
       .then(page => {
-         res.render('page/contact/', {
+         res.render('page/kontakt', {
             page: page,
             pageTitle: 'Joakim',
             path: '/contact'
