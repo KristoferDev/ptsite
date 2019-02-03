@@ -7,6 +7,7 @@ class Page {
       this.starttext = starttext;
       this.admin_id = parseInt(admin_id);
    }
+
    save() {
       const db = getDb();
       return db.collection('pages')

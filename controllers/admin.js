@@ -1,5 +1,5 @@
 const User = require('../models/user');
-const Page = require('../models/page');
+//const Page = require('../models/page');
 
 exports.getLogin = (req, res , next) => {
    res.render('admin/login', {
@@ -10,9 +10,12 @@ exports.getLogin = (req, res , next) => {
 };
 
 exports.getAdmin = (req, res, next) => {
-   page.find()
+   //console.log(User);
+   User
+      .findAll()
       .then(page => {
          res.render('admin/admin', {
+            page: page,
             pageTitle: 'Admin',
             path: '/admin/admin',
             formCSS: true
@@ -27,9 +30,8 @@ exports.postAdmin = (req, res, next) => {
    const header = req.body.header;
    const starttext = req.body.text;
    const admin_id = req.body.admin_id;
-   console.log(header, starttext, admin_id);
-   const page = new Page(header, starttext, admin_id);
-   page
+   const users = new User(header, starttext, admin_id);
+   users
       .save()
       .then(result => {
          res.redirect('/admin/admin');
