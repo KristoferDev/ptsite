@@ -10,7 +10,7 @@ exports.getLogin = (req, res , next) => {
 };
 
 exports.getAdmin = (req, res, next) => {
-   page.find()
+   Page.find()
       .then(page => {
          res.render('admin/admin', {
             pageTitle: 'Admin',
@@ -29,7 +29,7 @@ exports.postAdmin = (req, res, next) => {
    const admin_id = req.body.admin_id;
    console.log(header, starttext, admin_id);
    const page = new Page(header, starttext, admin_id);
-   page
+   Page
       .save()
       .then(result => {
          res.redirect('/admin/admin');
