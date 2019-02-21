@@ -4,6 +4,16 @@
 <body>
    <%- include('../includes/navigation.ejs') %>
    <main>
+
+      <script>console.log('Pages', pages)</script>
+      <% if (page.length > 0) { %>
+         <% for (let pages of page) { %>
+            <h1><%= pages.header %></h1>
+         <% } %>
+      <% } else { %>
+         <h1>No page found!</h1>
+      <% } %>
+
       <h1>Redigera sidor</h1>
       <h2>Logos mm</h2>
       <form class="admin-form" action="admin/admin" method="POST">
